@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guadalupe | Programadora</title>
+<meta name="description" content="Portfolio de Guadalupe, programadora. Sistemas web con Django y Firebase. También toco la batería.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="envoltura">
+    <a class="marca" href="#inicio"><i aria-hidden="true"></i>guada</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li class="ocultable"><a href="#yo">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><button class="tema" id="tema" type="button" aria-label="Cambiar entre modo claro y oscuro">◐</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero envoltura">
+    <p class="saludo">Hola, soy</p>
+    <h1 class="nombre" id="nombre" aria-label="Guadalupe">Guadalupe</h1>
+
+    <div class="intro">
+      <div class="bajada">
+        <p class="bajada-lead">Programadora. Me gusta crear, resolver problemas y aprender haciendo.</p>
+        <p>Disfruto empezar con una idea que parece complicada y terminar convirtiéndola en algo que funciona. Me gusta entender cómo funcionan las cosas, buscar soluciones y no quedarme con el “no sé hacerlo”.</p>
+        <p>La programación me dio una forma distinta de crear, y todavía estoy descubriendo todo lo que puedo hacer con ella.</p>
+        <p>Y cuando cierro la compu, me siento en la batería. 🥁</p>
+      </div>
+
+      <div class="caja" aria-labelledby="caja-titulo">
+        <div class="caja-arriba">
+          <p id="caja-titulo">Esta es mi caja de ritmos. Tocá los cuadraditos y dale play.</p>
+          <div class="controles">
+            <button class="btn-play" id="play" type="button" aria-pressed="false">
+              <svg viewBox="0 0 10 10" aria-hidden="true"><path id="icono" d="M1 0 L10 5 L1 10 Z"/></svg>
+              <span id="play-texto">Tocar</span>
+            </button>
+            <label class="tempo">
+              <span class="solo-lector">Velocidad</span>
+              <input type="range" id="bpm" min="70" max="160" value="100">
+              <output id="bpm-valor" for="bpm">100 bpm</output>
+            </label>
+            <button class="btn-chico" id="limpiar" type="button">Limpiar</button>
+          </div>
+        </div>
+        <div id="secuenciador"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="proyectos">
+    <div class="envoltura">
+      <h2>Proyectos</h2>
+
+      <!-- PROYECTO: TALLER -->
+      <article class="proyecto">
+        <div class="visual taller" aria-hidden="true">
+          <!-- Podés reemplazar esta ilustración por una captura real del sistema -->
+          <div class="ticket">
+            <div class="sello">En taller</div>
+            <div class="ticket-titulo">Orden de trabajo 0142</div>
+            <div class="ticket-sub">Semirremolque de 3 ejes, sistema neumático</div>
+            <table>
+              <tr><td>Pastillas eje 2</td><td>× 4</td></tr>
+              <tr><td>Pulmón de freno</td><td>× 2</td></tr>
+              <tr><td>Regulación de frenos</td><td>× 1</td></tr>
+              <tr><td>Mano de obra</td><td>3 h</td></tr>
+            </table>
+            <div class="flujo">
+              <span>Presupuesto</span><span class="actual">Orden</span><span>Factura</span><span>Cuenta corriente</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>Sistema de gestión para un taller de frenos</h3>
+          <p>Un sistema para un taller que repara frenos de camiones. Lleva los clientes con sus unidades, el catálogo de repuestos con proveedores y márgenes, los presupuestos que se convierten en órdenes de trabajo, la facturación y la cuenta corriente de cada cliente.</p>
+          <p class="detalle">Nada se borra: las bajas son lógicas para no perder el historial, y el stock se descuenta una sola vez aunque la orden se edite. La interfaz se actualiza por partes con HTMX, sin recargar la página.</p>
+          <ul class="stack" aria-label="Tecnologías">
+            <li>Python</li><li>Django 5</li><li>HTMX</li><li>PostgreSQL</li><li>Gunicorn</li><li>WhiteNoise</li>
+          </ul>
+          <div class="enlaces">
+            <a class="enlace lleno" href="https://github.com/saldanoguadalupe69/taller-frenos" target="_blank" rel="noopener">Ver el código</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROYECTO: ESTUDIANTES -->
+      <article class="proyecto invertido">
+        <div class="visual facu" aria-hidden="true">
+          <!-- Podés reemplazar esta ilustración por una captura real de la app -->
+          <div class="celu">
+            <div class="celu-top"><span>Tutor IA</span><span>✨</span></div>
+            <div class="progreso">
+              <strong>Cómo venís</strong>
+              <div>14 de 38 materias aprobadas</div>
+              <div class="barra"><b></b></div>
+            </div>
+            <div class="burbuja yo">¿Me explicás la regla de la cadena con un ejemplo?</div>
+            <div class="burbuja tutor">Dale. Si tenés f(g(x)), derivás la de afuera y la multiplicás por la derivada de la de adentro…</div>
+          </div>
+        </div>
+        <div>
+          <h3>Sistema Estudiantes</h3>
+          <p>Una app para organizar la facultad: plan de estudio, finales pendientes, calendario de fechas, resúmenes compartidos entre amigos, grupos con chat y un tutor con IA que explica en castellano, paso a paso.</p>
+          <p class="detalle">Se entra con la cuenta de Google y los datos se sincronizan en tiempo real. La clave de la IA no está en el código: la resguarda Firebase. Y si un modelo de Gemini deja de estar disponible, el tutor prueba con el siguiente y sigue funcionando.</p>
+          <ul class="stack" aria-label="Tecnologías">
+            <li>JavaScript</li><li>Firebase</li><li>Firestore</li><li>Gemini</li><li>HTML y CSS</li>
+          </ul>
+          <div class="enlaces">
+            <a class="enlace lleno" href="https://sistema-estudiantes-7c67d.web.app" target="_blank" rel="noopener">Probar la app</a>
+            <!-- Cuando lo subas a GitHub, cambiá el href de abajo por el link del repositorio -->
+            <a class="enlace" href="https://github.com/saldanoguadalupe69" target="_blank" rel="noopener">Ver el código</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="yo">
+    <div class="envoltura">
+      <h2>Cuando no estoy programando</h2>
+      <div class="afuera">
+        <p>Me gusta entender cómo funcionan las cosas y después armarlas yo. Con el código y con los ritmos es igual: práctica, paciencia y tocar lo mismo hasta que sale.</p>
+        <div class="cosas">
+          <div class="cosa">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <ellipse cx="32" cy="24" rx="22" ry="7" fill="var(--redo)"/>
+              <path d="M10 24v18c0 4 10 7 22 7s22-3 22-7V24" fill="var(--bombo)"/>
+              <ellipse cx="32" cy="24" rx="22" ry="7" fill="none" stroke="var(--tinta)" stroke-width="2.5"/>
+              <path d="M10 24v18c0 4 10 7 22 7s22-3 22-7V24" fill="none" stroke="var(--tinta)" stroke-width="2.5"/>
+              <path d="M22 4l12 16M46 6L36 20" stroke="var(--tinta)" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h3>Batería</h3>
+            <p>Mi forma de descargar. Arriba tenés una prueba.</p>
+          </div>
+          <div class="cosa">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="26" fill="var(--tinta)"/>
+              <circle cx="32" cy="32" r="18" fill="none" stroke="var(--fondo)" stroke-opacity=".35" stroke-width="1.5"/>
+              <circle cx="32" cy="32" r="12" fill="none" stroke="var(--fondo)" stroke-opacity=".35" stroke-width="1.5"/>
+              <circle cx="32" cy="32" r="7" fill="var(--hat)"/>
+              <circle cx="32" cy="32" r="2" fill="var(--fondo)"/>
+            </svg>
+            <h3>Música</h3>
+            <p>Siempre hay algo sonando mientras programo.</p>
+          </div>
+          <div class="cosa">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="4" y="12" width="56" height="40" rx="4" fill="var(--cancha)"/>
+              <path d="M32 12v40M4 24h8v16H4M60 24h-8v16h8" fill="none" stroke="#fff" stroke-width="2"/>
+              <circle cx="32" cy="32" r="7" fill="none" stroke="#fff" stroke-width="2"/>
+              <circle cx="44" cy="40" r="4" fill="#fff" stroke="var(--tinta)" stroke-width="1.5"/>
+            </svg>
+            <h3>Fútbol</h3>
+            <p>Jugando o mirando, el que se pueda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="herramientas">
+    <div class="envoltura">
+      <h2>Con qué trabajo</h2>
+      <ul class="herramientas">
+        <li>Python</li><li>Django</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>HTMX</li>
+        <li>PostgreSQL</li><li>Firebase</li><li>Git y GitHub</li><li>APIs de IA</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="envoltura">
+      <div class="contacto">
+        <h2>Escribime</h2>
+        <p>Estoy buscando mi próximo proyecto o equipo. Si te interesa lo que hago, me encantaría charlar.</p>
+        <div class="enlaces">
+          <a class="enlace lleno" href="mailto:saldanoguadalupe69@gmail.com">Mandame un mail</a>
+          <a class="enlace" href="https://github.com/saldanoguadalupe69" target="_blank" rel="noopener">GitHub</a>
+          <!-- Agregá tu LinkedIn cuando lo tengas:
+          <a class="enlace" href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener">LinkedIn</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">Hecho por Guadalupe, a <span id="pie-bpm">100</span> bpm.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
